@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>The Library</title>
+  </head>
+  <body>
+    <nav>
+      <img src="img/LOGO.svg" alt="TheLibrary" />
+    </nav>
+    <div class="wrapper">
+      <section>
+        <h3>Your Books</h3>
+        <div class="books">
+          <div class="booksCard">
+            <p class="cName">A Game Of Thrones</p>
+            <p class="cAuthor">Author: George</p>
+            <span class="mark">READ</span>
+          </div>
+
+          <div class="card" id="addBook">
+            <img src="/img/plus.svg" class="plusIcon" alt="Add Book" />
+            <p class="addText">Add Book</p>
+          </div>
+        </div>
+        <p class="footer">
+          Copyright © 2022 Eytch <img src="/img/github.svg" class="github" />
+        </p>
+      </section>
+
+      <!-- MODAL  -->
+      <div class="modal_wrapper">
+        <div class="modal">
+          <form autocomplete="off">
+            <label for="">Book Name:</label>
+            <input
+              type="text"
+              class="bookInput"
+              id="bookName"
+              title="Book name"
+              label="Book Name:"
+              required
+              placeholder="ex: A Game of Thrones"
+            />
+            <label for="">Book Author:</label>
+            <input
+              type="text"
+              class="bookInput"
+              id="authorName"
+              title="Author Name"
+              required
+              placeholder="ex: George R. R. Martin"
+            />
+            <label for="">No. of Pages:</label>
+            <input
+              type="number"
+              class="bookInput"
+              id="pages"
+              title="No. of Pages"
+              min="3"
+              max="999999"
+              required
+              placeholder="ex: 777"
+            />
+            <div class="read">
+              <label>
+                <input type="checkbox" id="check" />
+                <span>Have you read it?</span>
+              </label>
+            </div>
+            <button type="submit" class="add">ADD BOOK</button>
+            <a href="" class="close">CANCEL</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
