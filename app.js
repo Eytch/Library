@@ -10,6 +10,7 @@ const addP = document.querySelector(".addText");
 const icon = document.querySelector(".plusIcon");
 const mark = document.querySelector(".mark");
 const form = document.querySelector("form");
+const github = document.querySelector(".github");
 
 let bName = document.querySelector("#bookName");
 let aName = document.querySelector("#authorName");
@@ -105,4 +106,8 @@ mark.addEventListener("click", () => {
     mark.textContent = "READ";
     mark.style.backgroundColor = "rgb(232, 142, 111)";
   }
+});
+
+github.addEventListener("click", () => {
+  location.assign("http://www.github.com/Eytch");
 });
