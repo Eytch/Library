@@ -1,7 +1,6 @@
 // TODO LIST
-// 1 - add link to github icon
-// 2 - change read and not read in array
-// 3 - remove book from display
+// 1 - change read and not read in array
+// 2 - remove book from display
 
 const close = document.querySelector(".close");
 const modal = document.querySelector(".modal_wrapper");
