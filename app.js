@@ -7,7 +7,7 @@ const modal = document.querySelector(".modal_wrapper");
 const add = document.querySelector("#addBook");
 const addP = document.querySelector(".addText");
 const icon = document.querySelector(".plusIcon");
-const mark = document.querySelector(".mark");
+let mark = document.querySelector(".mark");
 const form = document.querySelector("form");
 const github = document.querySelector(".github");
 
@@ -66,6 +66,12 @@ const displayBooks = () => {
     const newSpan = document.createElement("span");
     newSpan.className = "mark";
     textNode = document.createTextNode(newBooks[i].read);
+    newSpan.setAttribute("id", "rID_" + i);
+
+    newSpan.addEventListener("click", () => {
+      rId = event.srcElement.id;
+      toggleRead(rId);
+    });
 
     newSpan.appendChild(textNode);
     newDiv.appendChild(newSpan);
@@ -101,19 +107,32 @@ add.addEventListener("mouseout", () => {
   icon.style.marginTop = "70px";
 });
 
-mark.addEventListener("click", () => {
-  // if (mark.textContent == "READ") {
-  //   mark.textContent = "NOT READ";
-  //   mark.style.backgroundColor = "black";
-  // } else {
-  //   mark.textContent = "READ";
-  //   mark.style.backgroundColor = "rgb(232, 142, 111)";
-  // }
+function toggleRead(id) {
+  let newID = id.split("_").pop();
 
-  books[0].read = "NOT READ";
-  console.log(books[0]);
-});
+  if (books[newID].read == "READ") {
+    books[newID].read = "NOT READ";
+  } else {
+    books[newID].read = "READ";
+  }
+  console.log(newID);
+  let updatedREAD = document.querySelector("#" + id);
+  updatedREAD.innerHTML = books[newID].read;
+  console.log(books[newID]);
+}
 
-github.addEventListener("click", () => {
-  location.assign("http://www.github.com/Eytch");
-});
+if (mark) {
+  mark.addEventListener("click", () => {
+    if (mark.textContent == "READ") {
+      mark.textContent = "NOT READ";
+      mark.style.backgroundColor = "black";
+    } else {
+      mark.textContent = "READ";
+      mark.style.backgroundColor = "rgb(232, 142, 111)";
+    }
+  });
+  mark = document.querySelector(".mark");
+  github.addEventListener("click", () => {
+    location.assign("http://www.github.com/Eytch");
+  });
+}
