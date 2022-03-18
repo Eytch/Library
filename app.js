@@ -16,6 +16,8 @@ let aName = document.querySelector("#authorName");
 let pages = document.querySelector("#pages");
 let read = document.querySelector("#check");
 
+let readBook;
+
 let books = [];
 let newBooks = [];
 class book {
@@ -28,7 +30,12 @@ class book {
 }
 
 function addBook() {
-  let addedBook = new book(bName.value, aName.value, pages.value, read.checked);
+  if (read.checked === true) {
+    readBook = "READ";
+  } else {
+    readBook = "NOT READ";
+  }
+  let addedBook = new book(bName.value, aName.value, pages.value, readBook);
   books.push(addedBook);
   newBooks.push(addedBook);
   console.log(books);
@@ -58,11 +65,8 @@ const displayBooks = () => {
 
     const newSpan = document.createElement("span");
     newSpan.className = "mark";
-    if (newBooks[i].read === true) {
-      textNode = document.createTextNode("READ");
-    } else {
-      textNode = document.createTextNode("NOT READ");
-    }
+    textNode = document.createTextNode(newBooks[i].read);
+
     newSpan.appendChild(textNode);
     newDiv.appendChild(newSpan);
 
@@ -98,13 +102,16 @@ add.addEventListener("mouseout", () => {
 });
 
 mark.addEventListener("click", () => {
-  if (mark.textContent == "READ") {
-    mark.textContent = "NOT READ";
-    mark.style.backgroundColor = "black";
-  } else {
-    mark.textContent = "READ";
-    mark.style.backgroundColor = "rgb(232, 142, 111)";
-  }
+  // if (mark.textContent == "READ") {
+  //   mark.textContent = "NOT READ";
+  //   mark.style.backgroundColor = "black";
+  // } else {
+  //   mark.textContent = "READ";
+  //   mark.style.backgroundColor = "rgb(232, 142, 111)";
+  // }
+
+  books[0].read = "NOT READ";
+  console.log(books[0]);
 });
 
 github.addEventListener("click", () => {
