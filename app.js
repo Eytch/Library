@@ -1,7 +1,3 @@
-// TODO LIST
-// 1 - change read and not read in array
-// 2 - remove book from display
-
 const close = document.querySelector(".close");
 const modal = document.querySelector(".modal_wrapper");
 const add = document.querySelector("#addBook");
