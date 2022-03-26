@@ -38,8 +38,6 @@ function addBook() {
   let addedBook = new book(bName.value, aName.value, pages.value, readBook);
   books.push(addedBook);
   newBooks.push(addedBook);
-  console.log(books);
-
   displayBooks();
 }
 
@@ -95,6 +93,11 @@ close.addEventListener("click", (e) => {
 
 add.addEventListener("click", () => {
   modal.style.display = "block";
+
+  if (document.documentElement.clientWidth < 500) {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 });
 
 add.addEventListener("mouseover", () => {
@@ -115,10 +118,8 @@ function toggleRead(id) {
   } else {
     books[newID].read = "READ";
   }
-  console.log(newID);
   let updatedREAD = document.querySelector("#" + id);
   updatedREAD.innerHTML = books[newID].read;
-  console.log(books[newID]);
 }
 
 if (mark) {
