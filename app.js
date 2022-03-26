@@ -64,7 +64,7 @@ const displayBooks = () => {
     const newSpan = document.createElement("span");
     newSpan.className = "mark";
     textNode = document.createTextNode(newBooks[i].read);
-    newSpan.setAttribute("id", "rID_" + i);
+    newSpan.setAttribute("id", "rID_" + books.length);
 
     newSpan.addEventListener("click", () => {
       rId = event.srcElement.id;
@@ -112,14 +112,17 @@ add.addEventListener("mouseout", () => {
 
 function toggleRead(id) {
   let newID = id.split("_").pop();
+  // console.log(books[0]);
 
-  if (books[newID].read == "READ") {
-    books[newID].read = "NOT READ";
+  if (books[newID - 1].read == "READ") {
+    books[newID - 1].read = "NOT READ";
   } else {
-    books[newID].read = "READ";
+    books[newID - 1].read = "READ";
   }
   let updatedREAD = document.querySelector("#" + id);
-  updatedREAD.innerHTML = books[newID].read;
+  updatedREAD.innerHTML = books[newID - 1].read;
+
+  console.log(books[newID - 1]);
 }
 
 if (mark) {
